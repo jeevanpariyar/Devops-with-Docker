@@ -1,0 +1,46 @@
+Exercise 1.1: Getting started
+
+Since we already did "Hello, World!" in the material let's do something else.
+Start 3 containers from an image that does not automatically exit (such as nginx) in detached mode.
+Input:
+ubuntu $ docker images
+
+Output:
+
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+nginx         latest    a72860cb95fd   7 weeks ago     188MB
+hello-world   latest    d2c94e258dcb   15 months ago   13.3kB
+ubuntu $ 
+
+########################################################################################################
+
+ 2: Running 3 Containers of nginx in detached mode:
+Input:
+ubuntu $ docker run -dt nginx -p80:80 nginx-1
+8e5911ed2f7ab343697318172533e36d53dc491134c9e328d3765dbcd8bf04b7
+ubuntu $ docker run -dt nginx -p80:80 nginx-2
+bda10ded169bb82e2859f4bfc774242019d24f9ea5890ffec7d3143ce8acd838
+ubuntu $ docker run -dt nginx -p80:80 nginx-3
+48ca987ede2c79792377f85f924957c8ff2ee57bf5892bf470afe0f4b38334e8
+ubuntu $ docker ps -a
+
+Output:
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                        PORTS     NAMES
+48ca987ede2c   nginx         "/docker-entrypoint.…"   5 seconds ago    Exited (127) 5 seconds ago              great_archimedes
+bda10ded169b   nginx         "/docker-entrypoint.…"   10 seconds ago   Exited (127) 9 seconds ago              musing_keldysh
+8e5911ed2f7a   nginx         "/docker-entrypoint.…"   14 seconds ago   Exited (127) 13 seconds ago             brave_johnson
+
+3:Stop two of the containers and leave one container running.
+Input: doccker ps -a
+Output:
+ubuntu $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                      PORTS     NAMES
+58be8e1e8c60   nginx     "/docker-entrypoint.…"   2 minutes ago   Exited (0) 47 seconds ago             gifted_shannon
+773a2539d551   nginx     "/docker-entrypoint.…"   2 minutes ago   Exited (0) 29 seconds ago             boring_sammet
+a62e7b06348c   nginx     "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes                80/tcp    nice_hawking
+ubuntu $ 
+
+
+#######################################################################################################################################
+
+
