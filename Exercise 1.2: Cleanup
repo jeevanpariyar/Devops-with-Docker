@@ -1,0 +1,22 @@
+Exercise 1.2: Cleanup
+We have containers and an image that are no longer in use and are taking up space. Running docker ps -a and docker image ls will confirm this.
+Clean the Docker daemon by removing all images and containers.
+Submit the output for docker ps -a and docker image ls
+
+Output:
+ubuntu $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                      PORTS     NAMES
+58be8e1e8c60   nginx     "/docker-entrypoint.…"   2 minutes ago   Exited (0) 47 seconds ago             gifted_shannon
+773a2539d551   nginx     "/docker-entrypoint.…"   2 minutes ago   Exited (0) 29 seconds ago             boring_sammet
+a62e7b06348c   nginx     "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes                80/tcp    nice_hawking
+ubuntu $ docker rm 58be8e1e8c60 
+58be8e1e8c60
+ubuntu $ docker rm 773a2539d551 
+773a2539d551
+ubuntu $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+a62e7b06348c   nginx     "/docker-entrypoint.…"   7 minutes ago   Up 7 minutes   80/tcp    nice_hawking
+ubuntu $ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+nginx        latest    a72860cb95fd   7 weeks ago   188MB
+ubuntu $ 
